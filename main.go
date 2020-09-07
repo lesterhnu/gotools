@@ -2,10 +2,9 @@ package main
 
 import (
 	"fmt"
-	"tools/uuid"
+	"tools/exchange_rate"
 )
 
 func main() {
-	uuid := uuid.GetUUID()
-	fmt.Println(uuid)
+	fmt.Println(exchange_rate.GetAllRate())
 }
