@@ -6,5 +6,5 @@ import (
 )
 
 func main() {
-	fmt.Println(exchange_rate.GetAllRate())
+	fmt.Println(exchange_rate.GetRate("英镑"))
 }
