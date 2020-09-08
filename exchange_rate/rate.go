@@ -60,11 +60,12 @@ func GetAllRate() []MoneyType {
 	if len(res) > 0 {
 		for k, v := range res {
 			list[k] = MoneyType{
-				CashPurchasePrice:         v[1],
-				SellingRateOfSpotExchange: v[2],
-				CashSellingRate:           v[3],
-				BocConversionPrice:        v[4],
-				Datetime:                  v[5],
+				BuyingRate:                v[1],
+				CashPurchasePrice:         v[2],
+				SellingRateOfSpotExchange: v[3],
+				CashSellingRate:           v[4],
+				BocConversionPrice:        v[5],
+				Datetime:                  v[6],
 			}
 		}
 	}
