@@ -16,7 +16,7 @@ const (
 	baseUrl = "https://www.boc.cn/sourcedb/whpj/index.html"
 )
 
-var pattern = regexp.MustCompile(`<tr>[.\n\s]*<td>(.*?)</td>[.\n\s]*<td>(.*?)</td>[.\n\s]*<td>(.*?)</td>[.\n\s]*<td>(.*?)</td>[.\n\s]*<td>(.*?)</td>[.\n\s]*<td>(.*?)</td>[.\n\s]*<td class="pjrq">(.*?)</td>`)
+var pattern = regexp.MustCompile(`(?s)<tr>[.\s]*<td>(.*?)</td>[.\s]*<td>(.*?)</td>[.\s]*<td>(.*?)</td>[.\s]*<td>(.*?)</td>[.\s]*<td>(.*?)</td>[.\s]*<td>(.*?)</td>[.\s]*<td class="pjrq">(.*?)</td>`)
 
 type MoneyType struct {
 	//目标币种
@@ -42,6 +42,7 @@ func GetRate(target string) MoneyType {
 	var result MoneyType
 	if len(res) > 0 {
 		result = MoneyType{
+
 			BuyingRate:                res[0][1],
 			CashPurchasePrice:         res[0][2],
 			SellingRateOfSpotExchange: res[0][3],
@@ -60,12 +61,13 @@ func GetAllRate() []MoneyType {
 	if len(res) > 0 {
 		for k, v := range res {
 			list[k] = MoneyType{
-				BuyingRate:                v[1],
-				CashPurchasePrice:         v[2],
-				SellingRateOfSpotExchange: v[3],
-				CashSellingRate:           v[4],
-				BocConversionPrice:        v[5],
-				Datetime:                  v[6],
+				Target:                    v[1],
+				BuyingRate:                v[2],
+				CashPurchasePrice:         v[3],
+				SellingRateOfSpotExchange: v[4],
+				CashSellingRate:           v[5],
+				BocConversionPrice:        v[6],
+				Datetime:                  v[7],
 			}
 		}
 	}
