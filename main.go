@@ -1,10 +1,5 @@
 package main
 
-import (
-	"fmt"
-	"tools/exchange_rate"
-)
-
 func main() {
-	fmt.Println(exchange_rate.GetRate("英镑"))
+
 }

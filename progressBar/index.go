@@ -2,6 +2,9 @@ package progressBar
 
 import "fmt"
 
+/**
+进度条 控制台显示
+*/
 type Bar struct {
 	percent int64  //百分比
 	cur     int64  //当前进度位置
@@ -37,9 +40,9 @@ func (bar *Bar) Play(cur int64) {
 	if bar.percent != last && bar.percent%2 == 0 {
 		bar.rate += bar.graph
 	}
-	fmt.Printf("\r[%-50s]%3d%% %8d/%d",bar.rate,bar.percent,bar.cur,bar.total)
+	fmt.Printf("\r[%-50s]%3d%% %8d/%d", bar.rate, bar.percent, bar.cur, bar.total)
 }
 
-func (bar *Bar)Finish(){
+func (bar *Bar) Finish() {
 	fmt.Println()
 }
